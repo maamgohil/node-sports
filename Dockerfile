@@ -19,10 +19,4 @@ RUN apt-get install -y wget  && \
 
 RUN unzip GitVersion_4.0.0-beta0012.zip -d GitVersion
 
-RUN group="$(getent group ${jenkins_group_id} | cut -d: -f1)" && \
-useradd jenkins -u ${jenkins_user_id} -g $group --shell /bin/bash --create-home && \
-echo "jenkins ALL=(ALL) NOPASSWD:/usr/bin/npm" > /etc/sudoers.d/jenkins && \
-chmod +x /etc/sudoers.d/jenkins && \
-echo "jenkins:jenkins" | chpasswd && adduser jenkins sudo
-
 USER jenkins
