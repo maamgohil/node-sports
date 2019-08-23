@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Unit Test') {
       steps {
-        echo 'unit test'
+        sh "mono /GitVersion/GitVersion.exe /b master /showvariable SemVer"
       }
     }
     stage('Security Scans') {
