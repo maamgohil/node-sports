@@ -49,13 +49,13 @@ echo "integration test"
     }
     post {
         success {
-
+            echo "success"
         }
         failure{
-
+            echo "failure"    
         }
         cleanup{
-
+            echo "cleanup
         }
     }
 }
