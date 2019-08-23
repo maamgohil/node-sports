@@ -7,7 +7,7 @@ RUN apt-get update && \
 apt-get install -y zip
 
 RUN apt-get install sudo
-RUN curl -sL https://deb.nodesource.com/setup_0.x | sudo -E bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - && \
 apt-get install -y nodejs
 
 RUN apt-get install mono-complete
