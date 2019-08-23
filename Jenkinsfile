@@ -11,7 +11,7 @@ pipeline{
 
     }
     environment{
-
+        VERSION_NUM = ""
     }
     stages{
         stage('Build'){
@@ -38,13 +38,19 @@ pipeline{
             }
         }
         stage('Package'){
-echo "package"
+            steps{
+                echo "package"
+            }
         }
         stage('Deploy'){
-echo "deploy"
+            steps {
+                echo "deploy"
+            }
         }
         stage('Integration Test'){
-echo "integration test"
+            steps{
+                echo "integration test"
+            }
         }        
     }
     post {
