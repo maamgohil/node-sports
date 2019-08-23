@@ -24,10 +24,7 @@ pipeline{
                 echo "unit test"
             }
         }
-        stage('Security Scans'){
-            input {
-
-            }
+        stage('Security Scans'){          
             steps{
                 echo "secuirty scan"    
             }
