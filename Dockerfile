@@ -10,20 +10,6 @@ RUN apt-get install sudo
 RUN curl -sL https://deb.nodesource.com/setup_0.x | sudo -E bash - && \
 apt-get install -y nodejs
 
-
-RUN apt-get install && \
-    apt-transport-https && \
-    ca-certificates && \    
-    gnupg2 && \
-    software-properties-common
-
-RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" && \
-apt-get update && \
-apt-get install -y docker-ce
-
-RUN export PATH=~/.local/bin:$PATH
-
 RUN apt-get install mono-complete
 
 RUN apt-get install libcurl3
