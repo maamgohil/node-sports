@@ -10,9 +10,9 @@ RUN apt-get install sudo
 RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - && \
 apt-get install -y nodejs
 
-RUN apt-get install mono-complete
+RUN apt-get install -y mono-complete
 
-RUN apt-get install libcurl3
+RUN apt-get install -y libcurl3
 
 RUN wget https://github.com/GitTools/GitVersion/releases/download/v4.0.0-beta.12/GitVersion_4.0.0-beta0012.zip
 
