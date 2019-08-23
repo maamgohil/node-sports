@@ -22,6 +22,8 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(
 apt-get update && \
 apt-get install -y docker-ce
 
+RUN export PATH=~/.local/bin:$PATH
+
 RUN apt-get install mono-complete
 
 RUN apt-get install libcurl3
