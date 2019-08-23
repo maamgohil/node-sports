@@ -2,6 +2,7 @@ pipeline{
     agent {
         dockerfile {
             filename 'Dockerfile'
+            args '--privileged -v /var/run/docker.scok:/var/run/docker.sock'
             additionalBuildArgs '--build-arg jenkins_user_id="$(id -u)" --build-arg jenkins_group_id="$(id -g)"'
         }
 
