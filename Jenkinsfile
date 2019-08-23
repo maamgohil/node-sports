@@ -55,7 +55,7 @@ echo "integration test"
             echo "failure"    
         }
         cleanup{
-            echo "cleanup
+            echo "cleanup"
         }
     }
 }
