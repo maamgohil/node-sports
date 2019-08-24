@@ -30,6 +30,8 @@ sudo make install
 
 RUN unzip GitVersion_4.0.0-beta0012.zip -d GitVersion
 
+RUN cp LibGit2Sharp.dll.config /GitVersion/LibGit2Sharp.dll.config
+
 RUN curl -LJO https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz && \
 tar -xvf *.tgz -C . && mv hub-linux-amd64*/bin/* /usr/local/bin
 
