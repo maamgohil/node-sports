@@ -53,10 +53,7 @@ pipeline {
         echo 'integration test'
       }
     }
-  }
-  environment {
-    VERSION_NUM = ''
-  }
+  } 
   post {
     success {
       echo 'success'
