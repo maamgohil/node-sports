@@ -34,7 +34,7 @@ pipeline {
         steps{
             script{
                 GIT_VERSION=sh(script:"mono /GitVersion/GitVersion.exe /b master /showvariable SemVer", returnStdout: true)
-                echo ${GIT_VERSION}
+                echo "GITVERSION=${GIT_VERSION}"
             }
         }
     }
