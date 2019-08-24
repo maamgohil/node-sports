@@ -32,7 +32,10 @@ pipeline {
     }
     stage("Version"){
         steps{
-            sh "GIT_VERSION=$(mono /GitVersion/GitVersion.exe /b master /showvariable SemVer)"
+            script{
+                GIT_VERSION=sh(script:"$(mono /GitVersion/GitVersion.exe /b master /showvariable SemVer)", returnStdout: true)
+                echo ${GIT_VERSION}
+            }
         }
     }
     stage('Package') {
