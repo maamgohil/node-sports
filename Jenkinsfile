@@ -13,7 +13,10 @@ pipeline {
   stages {
     stage('Build') {
         steps{
-            echo 'Pulling...' + env.BRANCH_NAME
+            script{
+                echo sh(returnStdout: true, script: 'env')
+            }
+            
         }
         
     }
