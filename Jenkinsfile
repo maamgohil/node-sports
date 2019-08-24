@@ -12,8 +12,9 @@ pipeline {
   }
   stages {
     stage('Build') {
-        
+        steps{
             echo 'Pulling...' + env.BRANCH_NAME
+        }
         
     }
     stage('Unit Test') {
