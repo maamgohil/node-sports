@@ -24,3 +24,15 @@ docker build -t j/j .
 
 
 docker container rm $(docker container ls -aq)
+
+
+https://hub.github.com/hub-release.1.html
+
+hub release create [-dpoc] [-a FILE] [-m MESSAGE|-F FILE] [-t TARGET] TAG
+
+mono /GitVersion/GitVersion.exe /b master /showvariable Semver
+
+PROJECT_VERSION=$(mono /GitVersion/GitVersion.exe /b master /showvariable S
+emver)
+
+echo $PROJECT_VERSION
