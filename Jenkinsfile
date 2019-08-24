@@ -38,9 +38,12 @@ pipeline {
             }
         }
     }
-    stage('Package') {
+    stage('Package & Release') {
       steps {
         echo 'package'
+         script{
+                hub release create -m "Release ${GIT_VERSION}" ${GIT_VERSION} -t ${env.BRANCH_NAME}
+            }
       }
     }
     stage('Deploy') {
