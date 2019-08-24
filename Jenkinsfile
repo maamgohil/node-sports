@@ -8,12 +8,12 @@ pipeline {
   }
   environment {
       GIT_VERSION=""
-      BRANCH_NAME="${env.BRANCH_NAME}"
+      BRANCH_NAME=""
   }
   stages {
     stage('Build') {
       steps {
-        echo 'build'
+        echo 'build' + 
       }
     }
     stage('Unit Test') {
@@ -43,6 +43,7 @@ pipeline {
       steps {
         echo 'package'
          script{
+                BRANCH_NAME=getGitBranchName()
                 sh """
                       hub release create -m "Release ${GIT_VERSION}" ${GIT_VERSION} -t ${BRANCH_NAME}
                 """
@@ -81,4 +82,8 @@ pipeline {
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
+}
+
+def getGitBranchName() {
+    return scm.branches[0].name
 }
