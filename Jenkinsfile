@@ -12,9 +12,9 @@ pipeline {
   }
   stages {
     stage('Build') {
-      steps {        
-        BRANCH_NAME=getGitBranchName() 
-      }
+        node{
+            echo 'Pulling...' + env.BRANCH_NAME
+        }
     }
     stage('Unit Test') {
       steps {
@@ -84,5 +84,5 @@ pipeline {
 }
 
 def getGitBranchName() {
-    return scm.branches[0].name
+    BRANCH_NAME=scm.branches[0].name
 }
