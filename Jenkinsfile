@@ -8,6 +8,7 @@ pipeline {
   }
   environment {
       GIT_VERSION=""
+      BRANCH_NAME="${env.BRANCH_NAME}"
   }
   stages {
     stage('Build') {
@@ -43,7 +44,7 @@ pipeline {
         echo 'package'
          script{
                 sh """
-                      hub release create -m "Release ${GIT_VERSION}" ${GIT_VERSION} -t ${env.BRANCH_NAME}
+                      hub release create -m "Release ${GIT_VERSION}" ${GIT_VERSION} -t ${BRANCH_NAME}
                 """
             }
       }
