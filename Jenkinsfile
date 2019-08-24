@@ -42,8 +42,8 @@ pipeline {
     stage('Package & Release') {
       steps {
         echo 'package'
-         script{
-                BRANCH_NAME=getGitBranchName()
+        BRANCH_NAME=getGitBranchName()
+         script{                
                 sh """
                       hub release create -m "Release ${GIT_VERSION}" ${GIT_VERSION} -t ${BRANCH_NAME}
                 """
