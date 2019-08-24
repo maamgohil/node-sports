@@ -8,13 +8,14 @@ pipeline {
   }
   environment {
       GIT_VERSION=""
-      BRANCH_NAME=""
+      BRANCH_NAME="${env.BRANCH_NAME}"
   }
   stages {
     stage('Build') {
         steps{
             script{
                 echo sh(returnStdout: true, script: 'env')
+                echo "${BRANCH_NAME}"
             }
             
         }
