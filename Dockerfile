@@ -19,6 +19,8 @@ RUN apt-get install -y libssl-dev
 RUN apt-get install -y wget  && \
   wget https://github.com/GitTools/GitVersion/releases/download/v4.0.0-beta.12/GitVersion_4.0.0-beta0012.zip
 
+RUN apt-get install -y cmake
+
 RUN wget https://github.com/libgit2/libgit2/archive/v0.28.2.tar.gz && \
 tar xzf v0.28.2.tar.gz && \
 cd libgit2-0.28.2/ && \
