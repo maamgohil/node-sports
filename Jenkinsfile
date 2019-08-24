@@ -42,7 +42,7 @@ pipeline {
       steps {
         echo 'package'
          script{
-                hub release create -m "Release ${GIT_VERSION}" ${GIT_VERSION} -t ${env.BRANCH_NAME}
+                sh(script: 'hub release create -m "Release ${GIT_VERSION}" ${GIT_VERSION} -t ${env.BRANCH_NAME}', returnStdout:true)
             }
       }
     }
