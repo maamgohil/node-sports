@@ -12,8 +12,8 @@ pipeline {
   }
   stages {
     stage('Build') {
-      steps {
-        echo 'build' + 
+      steps {        
+        BRANCH_NAME=getGitBranchName() 
       }
     }
     stage('Unit Test') {
@@ -41,8 +41,7 @@ pipeline {
     }
     stage('Package & Release') {
       steps {
-        echo 'package'
-        BRANCH_NAME=getGitBranchName()
+        echo 'package'        
          script{                
                 sh """
                       hub release create -m "Release ${GIT_VERSION}" ${GIT_VERSION} -t ${BRANCH_NAME}
