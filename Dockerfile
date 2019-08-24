@@ -14,7 +14,7 @@ RUN apt-get install -y mono-complete
 
 RUN apt-get install -y libcurl3
 
-RUN apt-get install libssl-dev
+RUN apt-get install -y libssl-dev
 
 RUN apt-get install -y wget  && \
   wget https://github.com/GitTools/GitVersion/releases/download/v4.0.0-beta.12/GitVersion_4.0.0-beta0012.zip
@@ -27,8 +27,6 @@ make && \
 sudo make install
 
 RUN unzip GitVersion_4.0.0-beta0012.zip -d GitVersion
-
-
 
 RUN curl -LJO https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz && \
 tar -xvf *.tgz -C . && mv hub-linux-amd64*/bin/* /usr/local/bin
