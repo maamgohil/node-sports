@@ -6,6 +6,9 @@ pipeline {
             additionalBuildArgs '--build-arg jenkins_user_id="$(id -u)" --build-arg jenkins_group_id="$(id -g)"'
         }
   }
+  environment {
+      GIT_VERSION=""
+  }
   stages {
     stage('Build') {
       steps {
@@ -14,9 +17,9 @@ pipeline {
     }
     stage('Unit Test') {
       steps {
-        sh "mono /GitVersion/GitVersion.exe /b master /showvariable SemVer"
+        echo "unit test"
       }
-    }
+    }    
     stage('Security Scans') {
       steps {
         echo 'secuirty scan'
@@ -26,6 +29,11 @@ pipeline {
       steps {
         echo 'sonar scan'
       }
+    }
+    stage("Version"){
+        steps{
+            sh "GIT_VERSION=$(mono /GitVersion/GitVersion.exe /b master /showvariable SemVer)"
+        }
     }
     stage('Package') {
       steps {
