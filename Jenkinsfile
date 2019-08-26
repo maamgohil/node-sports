@@ -92,6 +92,6 @@ def getGitBranchName() {
 
 def createRelease(){
 	sh """
-	      hub release create -p -m '${GIT_VERSION}' ${GIT_VERSION} -t ${BRANCH_NAME}
+	      hub release create -p  ${GIT_VERSION} -t ${BRANCH_NAME} -m "Release - ${GIT_VERSION}"
 	"""	
 }
