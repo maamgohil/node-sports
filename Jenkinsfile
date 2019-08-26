@@ -51,7 +51,7 @@ pipeline {
         sh 'ls -la'
          script{                
 		sh """
-		      hub release create -m ${GIT_VERSION} ${GIT_VERSION} -t ${BRANCH_NAME}
+		      hub release create -m "${GIT_VERSION}" ${GIT_VERSION} -t ${BRANCH_NAME}
 		"""
             }
       }
