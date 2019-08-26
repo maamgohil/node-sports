@@ -47,9 +47,12 @@ pipeline {
     stage('Package & Release') {
       steps {
         echo "Packaging for branch ${BRANCH_NAME}"
+	echo "Release ${GIT_VERSION}"
         sh 'ls -la'
          script{                
-                sh('hub release create -p -m "Release ${GIT_VERSION}" ${GIT_VERSION} -t ${BRANCH_NAME}')
+		COMMENT="Release ${GIT_VERSION}"
+		V="${GIT_VERSION}"
+                sh('hub release create -p -m "${COMMENT}" ${V} -t ${BRANCH_NAME}')
             }
       }
     }
