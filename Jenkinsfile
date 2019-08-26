@@ -49,9 +49,7 @@ pipeline {
         echo "Packaging for branch ${BRANCH_NAME}"
         sh 'ls -la'
          script{                
-                sh """
-                      hub release create -p -m "Release ${GIT_VERSION}" ${GIT_VERSION} -t ${BRANCH_NAME}
-                """
+                sh('hub release create -p -m "Release ${GIT_VERSION}" ${GIT_VERSION} -t ${BRANCH_NAME}')
             }
       }
     }
