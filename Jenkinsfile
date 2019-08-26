@@ -49,11 +49,7 @@ pipeline {
         echo "Packaging for branch ${BRANCH_NAME}"
 	echo "Release ${GIT_VERSION}"
         sh 'ls -la'
-         script{                
-		sh """
-		      hub release create -m """"${GIT_VERSION}"""" ${GIT_VERSION} -t ${BRANCH_NAME}
-		"""
-            }
+        createRelease()
       }
     }
     stage('Deploy') {
@@ -92,4 +88,10 @@ pipeline {
 
 def getGitBranchName() {
     BRANCH_NAME=scm.branches[0].name
+}
+
+def createRelease(){
+	sh """
+	      hub release create -p -m "${GIT_VERSION}" ${GIT_VERSION} -t ${BRANCH_NAME}
+	"""	
 }
