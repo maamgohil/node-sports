@@ -50,9 +50,9 @@ pipeline {
 	echo "Release ${GIT_VERSION}"
         sh 'ls -la'
          script{                
-		COMMENT="Release ${GIT_VERSION}"
-		V="${GIT_VERSION}"
-                sh('hub release create -p -m ${COMMENT} ${V} -t ${BRANCH_NAME}')
+		sh """
+		      hub release create -p -m ${GIT_VERSION} ${GIT_VERSION} -t ${BRANCH_NAME}
+		"""
             }
       }
     }
