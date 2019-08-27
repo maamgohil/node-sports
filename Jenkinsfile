@@ -91,7 +91,7 @@ def getGitBranchName() {
 }
 
 def createRelease(){
-	sh """
+	sh '''
 	      hub release create -t ${BRANCH_NAME} -m \\"Release - ${GIT_VERSION}\\" ${GIT_VERSION}
-	"""	
+	'''	
 }
