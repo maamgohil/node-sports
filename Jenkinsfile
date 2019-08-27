@@ -94,5 +94,5 @@ def createRelease(version){
 	echo "version is ${version}"
 	def gitversion = "${version}"
 	def branchName = "${BRANCH_NAME}"
-	sh(script: 'hub release create -t ' +  branchName  + ' -m "Release - ' + gitversion + '" ' + gitVersion, returnStdout: true)	
+	sh(script: 'hub release create -t ' +  branchName  + ' -m "Release - ' + gitversion + '" ' + gitversion, returnStdout: true)	
 }
