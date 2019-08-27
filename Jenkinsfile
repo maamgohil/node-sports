@@ -94,8 +94,8 @@ def createRelease(version){
 	echo "version is ${version}"
 	def gitversion = "${version} "
 	def branchName = "${BRANCH_NAME} "
-	def command = "hub release create -t $branchName '${gitversion}' -m \"Release - $gitversion\""
-	echo "some long message with branch  $branchName and version  $gitversion -m and -t in it to see if it \"goes\" $gitversion to next line"
+	def command = "hub release create -t $branchName ${gitversion}.toString() -m \"Release - $gitversion.toString()\""
+	echo "some long message with branch  $branchName and version  $gitversion.toString() -m and -t in it to see if it \"goes\" $gitversion to next line"
 	echo command
 	sh """
 		$command
