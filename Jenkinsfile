@@ -87,14 +87,14 @@ pipeline {
 }
 
 def getGitBranchName() {
-    BRANCH_NAME=scm.branches[0].name
+    BRANCH_NAME=scm.branches[0].name.toString()
 }
 
 def createRelease(version){
 	echo "version is ${version}"
 	def gitversion = "${version} "
 	def branchName = "${BRANCH_NAME} "
-	def command = "hub release create -t $branchName ${gitversion}.toString() -m \"Release - $gitversion.toString()\""
+	def command = "hub release create -t $branchName ${gitversion} -m \"Release - ${gitversion}\""
 	echo "some long message with branch  $branchName and version  $gitversion.toString() -m and -t in it to see if it \"goes\" $gitversion to next line"
 	echo command
 	sh """
