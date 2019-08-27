@@ -92,7 +92,8 @@ def getGitBranchName() {
 
 def createRelease(version){
 	echo "version is ${version}"
-	def gitversion = "${version}"
-	def branchName = "${BRANCH_NAME}"
-	sh(script: 'hub release create -t ' +  branchName  + '  ' + gitversion + ' -m \\"Release - ' + gitversion + ' \\" ', returnStdout: true)	
+	def gitversion = "${version} "
+	def branchName = "${BRANCH_NAME} "
+	
+	sh(script: 'hub release create -t ' +  branchName  + gitversion + '-m \\"Release - ' + gitversion + ' \\" ', returnStdout: true)	
 }
