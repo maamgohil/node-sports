@@ -39,8 +39,8 @@ pipeline {
     stage("Version"){
         steps{
             script{
-                GIT_VERSION=sh(script:"mono /GitVersion/GitVersion.exe /b master /showvariable SemVer", returnStdout: true)
-                echo "GITVERSION=${GIT_VERSION}"
+                GIT_VERSION=sh(script:"mono /GitVersion/GitVersion.exe /b master /showvariable SemVer", returnStdout: true).trim()
+                echo "GITVERSION=${GIT_VERSION} and some text"
             }
         }
     }
@@ -87,7 +87,7 @@ pipeline {
 }
 
 def getGitBranchName() {
-    BRANCH_NAME=scm.branches[0].name.toString()
+    BRANCH_NAME=scm.branches[0].name
 }
 
 def createRelease(version){
@@ -95,7 +95,7 @@ def createRelease(version){
 	def gitversion = "${version} "
 	def branchName = "${BRANCH_NAME} "
 	def command = "hub release create -t $branchName ${gitversion} -m \"Release - ${gitversion}\""
-	echo "some long message with branch  $branchName and version  $gitversion.toString() -m and -t in it to see if it \"goes\" $gitversion to next line"
+	echo "some long message with branch  $branchName and version  $gitversion -m and -t in it to see if it \"goes\" $gitversion to next line"
 	echo command
 	sh """
 		$command
