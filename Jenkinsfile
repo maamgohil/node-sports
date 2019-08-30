@@ -91,7 +91,8 @@ def getGitBranchName() {
 }
 
 def createRelease(version){
-	scm checkout
+	checkout()
+	dir('girsource') {
 	echo "version is ${version}"
 	def gitversion = "${version} "
 	def branchName = "${BRANCH_NAME} "
@@ -100,5 +101,19 @@ def createRelease(version){
 	echo command
 	sh """
 		$command
-	"""	
+	"""
+}
+}
+
+def checkout(){
+clearAll()
+dir('gitsource'){
+checkout scm
+}
+
+}
+
+def clearAll(){
+sh rm -rf *
+
 }
