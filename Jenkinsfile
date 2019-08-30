@@ -108,12 +108,11 @@ def createRelease(version){
 def checkout(){
 clearAll()
 dir('gitsource'){
-checkout scm
+	checkout scm
 }
 
 }
 
 def clearAll(){
-sh rm -rf *
-
+sh 'rm -rf *'
 }
