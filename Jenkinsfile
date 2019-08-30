@@ -91,6 +91,7 @@ def getGitBranchName() {
 }
 
 def createRelease(version){
+	scm checkout
 	echo "version is ${version}"
 	def gitversion = "${version} "
 	def branchName = "${BRANCH_NAME} "
