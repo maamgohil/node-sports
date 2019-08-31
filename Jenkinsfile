@@ -99,6 +99,7 @@ def createRelease(version){
 	def command = "hub release create -t $branchName ${gitversion} -m \"Release - ${gitversion}\""
 	echo "${PWD}"
 	echo command
+	sh 'ls -la'
 	sh """
 		$command
 	"""
