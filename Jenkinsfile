@@ -95,13 +95,10 @@ def createRelease(version){
 	echo "version is ${version}"
 	def gitversion = "${version} "
 	def branchName = "${BRANCH_NAME} "
-	sh 'cd $WORKSPACE'
-	def command = "hub release create -t $branchName ${gitversion} -m \"Release - ${gitversion}\""
-	echo "${PWD}"
-	echo command	
-	sh 'ls -la'
+	
 	sh """
-		$command
+		cd $WORKSPACE
+		hub release create -t $branchName $gitVersion -m "Release $gitVersion
 	"""
 
 }
