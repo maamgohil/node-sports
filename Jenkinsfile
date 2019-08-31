@@ -98,7 +98,7 @@ def createRelease(version){
 	
 	sh """
 		cd $WORKSPACE
-		hub release create -t $branchName $gitVersion -m "Release $gitVersion
+		hub release create -t ${BRANCH_NAME} ${GIT_VERSION} -m "Release ${GIT_VERSION}"
 	"""
 
 }
