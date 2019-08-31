@@ -91,8 +91,7 @@ def getGitBranchName() {
 }
 
 def createRelease(version){
-	checkout()
-	dir('gitrsource') {
+	
 	echo "version is ${version}"
 	def gitversion = "${version} "
 	def branchName = "${BRANCH_NAME} "
@@ -103,7 +102,7 @@ def createRelease(version){
 	sh """
 		$command
 	"""
-}
+
 }
 
 def checkout(){
