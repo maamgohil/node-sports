@@ -51,7 +51,9 @@ pipeline {
         sh 'ls -la'
         //createRelease(GIT_VERSION)
 	      script{
-		      sh(returnStdout: true, script: "git branch")
+		      sshagent(){
+		      	sh(returnStdout: true, script: "git branch")
+		      }
 	 }
       }
     }
