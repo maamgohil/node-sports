@@ -9,6 +9,7 @@ pipeline {
   environment {
       GIT_VERSION=""
       BRANCH_NAME="${env.BRANCH_NAME}"
+	  GITHUB_TOKEN = credentials("mycredentials")
   }
   stages {
     stage('Build') {
