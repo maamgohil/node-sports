@@ -51,7 +51,7 @@ pipeline {
         sh 'ls -la'
         //createRelease(GIT_VERSION)
 	      script{
-		      sshagent(['maamgohil']){
+		      sshagent([credentials("channels-sms-pipeline-credential")]){
 		      	sh(returnStdout: true, script: "git branch")
 		      }
 	 }
