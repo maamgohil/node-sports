@@ -9,7 +9,7 @@ pipeline {
   environment {
       GIT_VERSION=""
       BRANCH_NAME="${env.BRANCH_NAME}"
-	  GITHUB_TOKEN = credentials("mycredentials")
+	  GITHUB_TOKEN = credentials("maamgohil")
   }
   stages {
     stage('Build') {
@@ -52,7 +52,7 @@ pipeline {
         sh 'ls -la'
         //createRelease(GIT_VERSION)
 	      script{
-		      sshagent(){
+		      sshagent(['maamgohil']){
 		      	sh(returnStdout: true, script: "git branch")
 		      }
 	 }
