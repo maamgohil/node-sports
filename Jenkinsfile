@@ -8,7 +8,8 @@ pipeline {
   }
   environment {
       GIT_VERSION=""
-      BRANCH_NAME="${env.BRANCH_NAME}"	  
+      BRANCH_NAME="${env.BRANCH_NAME}"
+      
   }
   stages {
     stage('Build') {
@@ -51,8 +52,8 @@ pipeline {
         sh 'ls -la'
         //createRelease(GIT_VERSION)
 	      script{
-		      mytoken = credentials("channels-sms-pipeline-credential")
-		      sshagent([mytoken]){
+		      
+		      sshagent(['8cb57335-2b3e-4445-a479-1c72b778d0be']){
 		      	sh(returnStdout: true, script: "git branch")
 		      }
 	 }
