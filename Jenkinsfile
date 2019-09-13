@@ -50,9 +50,9 @@ pipeline {
 	echo "Release ${GIT_VERSION}"
         sh 'ls -la'
         //createRelease(GIT_VERSION)
-	      sshagent(){
+	      script{
 		      sh(returnStdout: true, script: "git branch")
-	      }
+	 }
       }
     }
     stage('Deploy') {
