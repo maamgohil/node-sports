@@ -49,7 +49,10 @@ pipeline {
         echo "Packaging for branch ${BRANCH_NAME}"
 	echo "Release ${GIT_VERSION}"
         sh 'ls -la'
-        createRelease(GIT_VERSION)
+        //createRelease(GIT_VERSION)
+	      sshagent(){
+		      sh(returnStdout: true, script: "git branch")
+	      }
       }
     }
     stage('Deploy') {
